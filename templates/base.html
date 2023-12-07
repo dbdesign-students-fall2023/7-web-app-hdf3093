@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flask-MongoDB Example App</title>
+    <title>Bladee Discography Database</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -10,17 +10,19 @@
   <body>
     <div class="container">
       <header>
-        <h1>Flask-MongoDB Example App</h1>
+        <h1>Bladee Discography Database</h1>
+        <h2>Rate your favorite album(s)!</h2>
+
         <p>
           <a href="{{ url_for('home')}}">Home</a> |
-          <a href="{{ url_for('read')}}">All posts</a> |
-          <a href="{{ url_for('create')}}">Create a post</a>
+          <a href="{{ url_for('read')}}">All albums and reviews</a> |
+          <a href="{{ url_for('create')}}">Create a review</a>
         </p>
       </header>
       <main>{% block container %} {% endblock %}</main>
       <footer>
         <p>
-          The source code for this example app is
+          The source code for this app is
           <a href="https://github.com/nyu-database-design/flask-mongodb-example"
             >available on Github</a
           >.

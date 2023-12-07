@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<h2>Read</h2>
-<p>This page shows information pulled from a MongoDB database collection.
-        
+    <h2>Read</h2>
+    <p>Albums, tracklists, and reviews.</p>
+
     {% for doc in docs %}
-    <div>
-        <hr class="solid">
-        <p class="post">
-            Posted by {{doc.name}} at {{ doc.created_at.strftime("%H:%M on %d %B %Y") }}
-            </br>
-            <a href="{{ url_for('edit',mongoid=doc._id)}}">Edit</a> | <a href="{{ url_for('delete',mongoid=doc._id)}}">Delete</a>
-            </br>
-        </p>
-        <p>
-            {{ doc.message }}
-        </p>
-            
-    </div>
-    {%endfor%}
-</p>
+        <div>
+            <hr class="solid">
+            <p class="post">
+                Title: {{ doc.title }}<br>
+                Genres: {{ doc.genres | join(', ') }}<br>
+                Release Date: {{ doc.release_date }}<br>
+            </p>
+            <p>Tracks:</p>
+            <ul>
+                {% for track in doc.tracks %}
+                    <li>{{ track.title }} - {{ track.duration }}</li>
+                {% endfor %}
+            </ul>
+            <p>Reviews:</p>
+            <ul>
+                {% for review in doc.reviews %}
+                    <li>{{ review.username }} rated it {{ review.rating }} stars: {{ review.comment }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,141 @@
+{
+    "artist": "Bladee",
+    "albums": [
+      {
+        "title": "333",
+        "release_date": "2022-11-12",
+        "genres": ["Cloud Rap", "Hyperpop"],
+        "tracks": [
+          {"title": "Wings in Motion", "duration": "2:24"},
+          {"title": "Don't Worry", "duration": "2:19"},
+          {"title": "Keys to the City", "duration": "2:27"},
+          {"title": "Hero of My Story 3style3", "duration": "1:59"},
+          {"title": "100s", "duration": "2:27"},
+          {"title": "Mean Girls", "duration": "2:27"},
+          {"title": "Innocent of All Things", "duration": "2:09"},
+          {"title": "Reality Surf", "duration": "2:04"},
+          {"title": "Noblest Strive", "duration": "2:15"},
+          {"title": "It Girl", "duration": "2:16"},
+          {"title": "Oh Well", "duration": "2:28"},
+          {"title": "Valerie", "duration": "2:40"},
+          {"title": "Finder", "duration": "1:44"},
+          {"title": "Extasia", "duration": "2:21"},
+          {"title": "Only One", "duration": "2:29"},
+          {"title": "Swan Lake", "duration": "2:57"}
+        ],
+        "reviews": [
+          {"username": "sunnyday", "rating": 5, "comment": "Can't stop listening!"},
+          {"username": "songbird89", "rating": 4, "comment": "At my wedding, we played this album<3"},
+          {"username": "codingninja", "rating": 4, "comment": "A triumph of sound and emotion."}
+        ]
+      },
+      {
+        "title": "Red Light",
+        "release_date": "2018-05-11",
+        "genres": ["Cloud Rap", "Trap"],
+        "featured_artists": ["Ecco2K", "Uli K"],
+        "tracks": [
+          {"title": "1D", "duration": "2:42"},
+          {"title": "Golden Boy", "duration": "3:29"},
+          {"title": "Westfield", "duration": "2:36"},
+          {"title": "Fake News", "duration": "2:40"},
+          {"title": "Steve Jobs", "duration": "2:29"},
+          {"title": "Obedient (featuring Ecco2K)", "duration": "2:59"},
+          {"title": "For You (featuring Ecco2k)", "duration": "2:36"},
+          {"title": "Hex", "duration": "2:40"},
+          {"title": "Nike Just Do It", "duration": "4:02"},
+          {"title": "That Thing You Do (featuring Uli K)", "duration": "2:54"},
+          {"title": "Decay", "duration": "2:08"},
+          {"title": "College Boy", "duration": "3:02"},
+          {"title": "Puppet Master", "duration": "2:41"},
+          {"title": "I'm Goofy", "duration": "3:13"}
+        ],
+        "reviews": [
+          {"username": "velvetvoiced", "rating": 5, "comment": "there’s something so otherworldly about red light…"},
+          {"username": "aquaazure", "rating": 5, "comment": "pure drain + my fall from grace=perfect balance"},
+          {"username": "pianomaster", "rating": 4, "comment": "Every track is a gem of creativity."}
+        ]
+      },
+      {
+        "title": "The Fool",
+        "release_date": "2023-08-18",
+        "genres": ["Cloud Rap", "Electronic"],
+        "featured_artists": ["Thaiboy Digital"],
+        "tracks": [
+          {"title": "The Fool Intro", "duration": "1:59"},
+          {"title": "Let's Ride", "duration": "2:25"},
+          {"title": "Hotel Breakfast", "duration": "2:14"},
+          {"title": "I Think...", "duration": "3:11"},
+          {"title": "Thee 9 Is Up", "duration": "3:04"},
+          {"title": "desiree", "duration": "2:26"},
+          {"title": "I Want It That Way", "duration": "2:02"},
+          {"title": "BBY", "duration": "2:00"},
+          {"title": "Inspiration Comes (featuring Thaiboy Digital)", "duration": "2:56"},
+          {"title": "egobaby", "duration": "2:18"},
+          {"title": "Trendy", "duration": "2:43"},
+          {"title": "Search True", "duration": "2:36"},
+          {"title": "Wett (Water2)", "duration": "2:25"}
+        ],
+        "reviews": [
+          {"username": "troubadour", "rating": 5, "comment": "what more could one want??"},
+          {"username": "banana2", "rating": 4, "comment": "the fool always gonna do it"},
+          {"username": "pinkskies24", "rating": 5, "comment": "pure bliss"}
+        ]
+      },
+      {
+        "title": "Icedancer",
+        "genres": ["Cloud Rap", "Trap"],
+        "release_date": "2018-12-29",
+        "tracks": [
+          {"title": "Side by Side", "duration": "2:17"},
+          {"title": "Inside Out", "duration": "2:17"},
+          {"title": "Dg Jeans", "duration": "1:44"},
+          {"title": "For Nothing", "duration": "2:01"},
+          {"title": "Special Place", "duration": "2:03"},
+          {"title": "Anything", "duration": "2:38"},
+          {"title": "Waster", "duration": "2:02"},
+          {"title": "Linkdin", "duration": "2:33"},
+          {"title": "The Silent Boy Cries (Ripsquadd Outro)", "duration": "1:20"},
+          {"title": "OKK", "duration": "1:33"},
+          {"title": "Topman", "duration": "3:14"},
+          {"title": "Mallwhore Freeestyle", "duration": "2:00"},
+          {"title": "Feel Like", "duration": "1:34"},
+          {"title": "Close", "duration": "3:22"},
+          {"title": "SmartWater", "duration": "2:30"},
+          {"title": "Be Nice 2 Me", "duration": "2:08"},
+          {"title": "Cartier'god Icedancer (Intermission)", "duration": "3:02"},
+          {"title": "Jaws", "duration": "1:57"},
+          {"title": "Frosty the Snowman", "duration": "2:50"}
+        ],
+        "reviews": [
+          {"username": "bladeelover81", "rating": 5, "comment": "Another masterpiece by Bladee! "},
+          {"username": "neuromancer234", "rating": 4, "comment": "Icedancer is pure art. Its true icedancerrrr its true"},
+          {"username": "draingang", "rating": 5, "comment": "Bladee's creativity knows no bounds."}
+        ]
+      },
+      {
+        "title": "Working on Dying",
+        "genres": ["Cloud Rap", "Trap"],
+        "release_date": "2017-12-28",
+        "tracks": [
+          {"title": "Cherry Bracelets", "duration": "2:58"},
+          {"title": "Backstr€€t Boys", "duration": "2:24"},
+          {"title": "Lordship", "duration": "2:28"},
+          {"title": "D-925", "duration": "2:36"},
+          {"title": "Under Your Spell", "duration": "1:45"},
+          {"title": "Gatekeeper", "duration": "3:16"},
+          {"title": "Redlight Moments", "duration": "3:09"},
+          {"title": "Knightsbridge", "duration": "2:00"},
+          {"title": "Best Buy", "duration": "1:56"}
+        ],
+        "reviews": [
+          {"username": "musicfanatic", "rating": 4, "comment": "A great album with unique vibes."},
+          {"username": "soundexplorer", "rating": 5, "comment": "Bladee's experimentation is groundbreaking."},
+          {"username": "melodyseeker", "rating": 4, "comment": "Working on Dying is a musical journey."}
+        ]
+      }
+    ]
+  }
+  
+  
+  

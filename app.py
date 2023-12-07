@@ -7,12 +7,13 @@ import datetime
 from bson.objectid import ObjectId
 import os
 import subprocess
-
 # instantiate the app
 app = Flask(__name__)
 
 # load credentials and configuration options from .env file
 # if you do not yet have a file named .env, make one based on the template in env.example
+
+
 import credentials
 config = credentials.get()
 
@@ -22,11 +23,13 @@ if config['FLASK_ENV'] == 'development':
     app.debug = True # debug mnode
 
 # make one persistent connection to the database
-connection = pymongo.MongoClient(config['MONGO_HOST'], 27017, 
-                                username=config['MONGO_USER'],
-                                password=config['MONGO_PASSWORD'],
-                                authSource=config['MONGO_DBNAME'])
-db = connection[config['MONGO_DBNAME']] # store a reference to the database
+connection = pymongo.MongoClient(config['class-mongodb.cims.nyu'], 27017, 
+                                username=config['hdf3093'],
+                                password=config['LBRVB3AJ'],
+                                authSource=config['bladee'])
+db = connection[config['bladee']] # store a reference to the database
+
+
 
 # set up the routes
 
@@ -44,8 +47,9 @@ def read():
     Route for GET requests to the read page.
     Displays some information for the user with links to other pages.
     """
-    docs = db.exampleapp.find({}).sort("created_at", -1) # sort in descending order of created_at timestamp
-    return render_template('read.html', docs=docs) # render the read template
+    docs = db.albums.find({}).sort("release_date", -1)
+    return render_template('read.html', docs=docs)
+
 
 
 @app.route('/create')
@@ -61,21 +65,29 @@ def create():
 def create_post():
     """
     Route for POST requests to the create page.
-    Accepts the form submission data for a new document and saves the document to the database.
+    Accepts the form submission data for a new review and saves the review to the database.
     """
-    name = request.form['fname']
-    message = request.form['fmessage']
+    username = request.form['username']
+    rating = int(request.form['rating'])
+    comment = request.form['comment']
+    album_title = request.form['album_title']
 
+    # Find selected album in the database based on the user input
+    album = db.bladee.find_one({"title": album_title})
 
-    # create a new document with the data the user entered
-    doc = {
-        "name": name,
-        "message": message, 
-        "created_at": datetime.datetime.utcnow()
-    }
-    db.exampleapp.insert_one(doc) # insert a new document
+    if album:
+        # Create a new review document with the data the user entered
+        review = {
+            "username": username,
+            "rating": rating,
+            "comment": comment,
+        }
 
-    return redirect(url_for('read')) # tell the browser to make a request for the /read route
+        # Append the new review to the reviews list of the selected album
+        db.bladee.update_one({"title": album_title}, {"$push": {"reviews": review}})
+
+    return redirect(url_for('read'))  
+
 
 
 @app.route('/edit/<mongoid>')
@@ -84,7 +96,7 @@ def edit(mongoid):
     Route for GET requests to the edit page.
     Displays a form users can fill out to edit an existing record.
     """
-    doc = db.exampleapp.find_one({"_id": ObjectId(mongoid)})
+    doc = db.bladee.find_one({"_id": ObjectId(mongoid)})
     return render_template('edit.html', mongoid=mongoid, doc=doc) # render the edit template
 
 
@@ -94,22 +106,34 @@ def edit_post(mongoid):
     Route for POST requests to the edit page.
     Accepts the form submission data for the specified document and updates the document in the database.
     """
-    name = request.form['fname']
-    message = request.form['fmessage']
+    username = request.form['username']
+    rating = int(request.form['rating'])
+    comment = request.form['comment']
+    album_title = request.form['album_title']
 
-    doc = {
-        # "_id": ObjectId(mongoid), 
-        "name": name, 
-        "message": message, 
-        "created_at": datetime.datetime.utcnow()
-    }
+    # Find the document by its _id
+    doc = db.bladee.find_one({"_id": ObjectId(mongoid)})
 
-    db.exampleapp.update_one(
-        {"_id": ObjectId(mongoid)}, # match criteria
-        { "$set": doc }
-    )
+    # Update the review information
+    review_to_update = next((review for review in doc['reviews'] if review['album_title'] == album_title), None)
 
-    return redirect(url_for('read')) # tell the browser to make a request for the /read route
+    if review_to_update:
+        # Define the review dictionary with the updated data
+        review = {
+            "username": username,
+            "rating": rating,
+            "comment": comment,
+            "album_title": album_title  # Make sure to include this line
+        }
+
+        # Update the specific review within the reviews array
+        db.bladee.update_one(
+            {"_id": ObjectId(mongoid), "reviews.album_title": album_title},
+            {"$set": {"reviews.$": review}}
+        )
+
+    return redirect(url_for('read'))
+
 
 
 @app.route('/delete/<mongoid>')
@@ -118,7 +142,7 @@ def delete(mongoid):
     Route for GET requests to the delete page.
     Deletes the specified record from the database, and then redirects the browser to the read page.
     """
-    db.exampleapp.delete_one({"_id": ObjectId(mongoid)})
+    db.bladee.delete_one({"_id": ObjectId(mongoid)})
     return redirect(url_for('read')) # tell the web browser to make a request for the /read route.
 
 @app.route('/webhook', methods=['POST'])
@@ -152,3 +176,6 @@ if __name__ == "__main__":
     #import logging
     #logging.basicConfig(filename='/home/ak8257/error.log',level=logging.DEBUG)
     app.run(debug = True)
+
+
+
